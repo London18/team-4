@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CustomMuiThemeProvider from 'containers/CustomMuiThemeProvider';
 import {Provider} from 'react-redux';
 import ClippedDrawer from 'containers/ClippedDrawer';
 import * as serviceWorker from './serviceWorker';
 import configureStore from 'redux/store/index';
-import {HashRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import RouterListener from "components/RouterListener";
 import 'css/index.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,28 +14,22 @@ import App from 'containers/App';
 
 const applicationStore = configureStore();
 
-const theme = createMuiTheme({
-    typography: {
-        useNextVariants: true,
-    },
-});
-
 ReactDom.render(
     <React.Fragment>
-        <MuiThemeProvider theme={theme}>
         <CssBaseline />
-            <Provider store={applicationStore}>
-                <Router>
-                    <RouterListener>
+        <Provider store={applicationStore}>
+            <Router>
+                <RouterListener>
+                    <CustomMuiThemeProvider>
                         <ClippedDrawer>
                             <Switch>
                                 <Route path="/" component={App}/>
                             </Switch>
                         </ClippedDrawer>
-                    </RouterListener>
-                </Router>
-            </Provider>
-        </MuiThemeProvider>
+                    </CustomMuiThemeProvider>
+                </RouterListener>
+            </Router>
+        </Provider>
     </React.Fragment>,
     document.getElementById('app')
 );

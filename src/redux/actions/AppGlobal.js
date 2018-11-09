@@ -12,3 +12,10 @@ export function toggleDrawer() {
         type: AllActions.AppGlobal.TOGGLE_DRAWER
     }
 }
+
+export function changePrimaryColor(color) {
+    return {
+        type: AllActions.AppGlobal.CHANGE_PRIMARY_COLOR,
+        color: color
+    }
+}

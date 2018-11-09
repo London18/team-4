@@ -7,10 +7,10 @@ import {promiseMiddleware} from 'redux/store/promiseMiddleware';
 
 import EnvironmentVariableUtils from 'modules/EnvironmentVariableUtils';
 import combinedReducers from 'redux/reducers/index';
+import {appGlobalInitialState} from "../reducers/AppGlobal";
 
 const defaultState = {
-    appGlobal: {
-    }
+    appGlobal: appGlobalInitialState
 };
 
 /**
@@ -19,7 +19,7 @@ const defaultState = {
 export default function configureStore() {
     const store = EnvironmentVariableUtils.isThisADevelopmentBuild() ?
         createStore(combinedReducers, defaultState, applyMiddleware(ReduxThunk, promiseMiddleware, logger)) :
-        createStore(combinedReducers, defaultState, applyMiddleware(ReduxThunk, promiseMiddleware));
+        createStore(combinedReducers, defaultState, applyMiddleware(ReduxThunk, promiseMiddleware, logger));
 
     if (module.hot) {
         // Enable Webpack hot module replacement for reducers
