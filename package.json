@@ -1,0 +1,60 @@
+{
+  "name": "valiro-react-website",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.1.2",
+    "@material-ui/icons": "^3.0.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-latex": "^1.2.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-hash-link": "^1.2.0",
+    "react-scripts": "2.0.4",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "scripts": {
+    "start": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode production --display-error-details",
+    "deploy": "npm run build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@mdx-js/loader": "^0.15.5",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.4",
+    "copy-webpack-plugin": "^4.5.3",
+    "css-loader": "^1.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mdx-loader": "^1.1.1",
+    "remark-attr": "^0.7.0",
+    "remark-autolink-headings": "^5.0.0",
+    "remark-bookmarks": "^1.0.0",
+    "remark-bracketed-spans": "^3.0.0",
+    "remark-collapse": "^0.1.2",
+    "remark-graphviz": "^0.2.2",
+    "remark-grid-tables": "^1.1.1",
+    "remark-normalize-headings": "^1.0.0",
+    "remark-slug": "^5.1.0",
+    "style-loader": "^0.23.1",
+    "stylerjs": "^1.4.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}

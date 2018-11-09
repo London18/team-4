@@ -1,0 +1,10 @@
+{
+  "short_name": "Team 4 MLC",
+  "name": "Code for Good - Team 4 MLC",
+  "icons": [
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
