@@ -6,23 +6,26 @@ import NoStyleLink from "components/NoStyleLink";
 
 
 const styles = theme => ({
+    button: {
+
+    }
 });
 
 class Menu extends React.Component {
     render() {
         return (
             <div>
-                <Button>
-                    Profile
-                </Button>
+                <div className={classes.button}>
+                    <Button>
+                        Settings
+                    </Button>
+                </div>
 
-                <Button>
-                    Settings
-                </Button>
-
-                <Button>
-                    <NoStyleLink to="/survey">Survey</NoStyleLink>
-                </Button>
+                <div className={classes.button}>
+                    <Button>
+                        <NoStyleLink to="/survey">Survey</NoStyleLink>
+                    </Button>
+                </div>
             </div>
         );
     }

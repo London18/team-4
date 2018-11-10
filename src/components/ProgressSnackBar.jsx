@@ -52,8 +52,13 @@ const styles2 = theme => ({
 });
 
 class ProgressSnackBar extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
     state = {
-        open: false,
+        open: this.props.open,
     };
 
     handleClick = () => {
@@ -73,17 +78,14 @@ class ProgressSnackBar extends React.Component {
 
         return (
             <div>
-                <Button className={classes.margin} onClick={this.handleClick}>
-                    Open success snackbar
-                </Button>
                 <Snackbar
                     anchorOrigin={{
                         vertical: 'top',
                         horizontal: 'center',
                     }}
-                    open={this.state.open}
+                    open={this.props.open}
                     TransitionComponent={Fade}
-                    autoHideDuration={1500}
+                    autoHideDuration={400}
                     onClose={this.handleClose}
                 >
                     <MySnackbarContentWrapper

@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Question from "components/questions/Question";
+import ProgressSnackBar from "../ProgressSnackBar";
 
 const styles = theme => ({
     root: {
@@ -17,23 +18,33 @@ const styles = theme => ({
 class Survey extends React.Component {
     state = {
         questionStartTime: new Date().getTime(),
-    }
+        open: false
+    };
 
 
     handleAnswer(questionId, answer) {
-        var questionEndTime = new Date().getTime()
+        this.setState({
+            open: true
+        });
+        setTimeout(function(){
+            this.setState({
+                open: false
+            }) ;
+            }.bind(this), 700);
+        var questionEndTime = new Date().getTime();
         var responseTime = questionEndTime - this.state.questionStartTime;
         console.log(responseTime);
         //Do something with the response time here
         this.setState({
             questionStartTime: new Date().getTime()
-        })
+        });
         if (questionId === this.props.questions.length - 1) {
             // finish
         }
         else {
             this.props.nextQuestion();
         }
+        //console.log(this.state.show);
     }
 
     render() {
@@ -44,6 +55,7 @@ class Survey extends React.Component {
         console.log(questions[questionIdx]);
         return (
             <div className={classes.root}>
+                <ProgressSnackBar open={this.state.open} />
                 <div className={classes.question}>
                     <Question
                         question={questions[questionIdx].question}
