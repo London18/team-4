@@ -15,13 +15,13 @@ class Menu extends React.Component {
     render() {
         return (
             <div>
-                <div className={classes.button}>
+                <div>
                     <Button>
                         Settings
                     </Button>
                 </div>
 
-                <div className={classes.button}>
+                <div>
                     <Button>
                         <NoStyleLink to="/survey">Survey</NoStyleLink>
                     </Button>

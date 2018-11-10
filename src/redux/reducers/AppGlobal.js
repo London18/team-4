@@ -42,6 +42,13 @@ export function appGlobal(state = appGlobalInitialState, action) {
             });
         }
 
+        case AllActions.AppGlobal.RESET_FORM: {
+            return Object.assign({}, {
+                ...state,
+                questionIdx: 0
+            });
+        }
+
         default: {
             return state;
         }

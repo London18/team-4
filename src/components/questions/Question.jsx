@@ -9,19 +9,24 @@ const styles = theme => ({
     root: {
         position: 'relative',
         width: '100%',
-        height: '100%'
+        height: '100%',
     },
     questionText: {
         margin: 'auto auto',
         textAlign: 'center',
-        marginTop: theme.spacing.unit * 5,
-        marginBottom: theme.spacing.unit * 10,
+        display: 'block'
     },
     answer: {
         width: '50%',
         height: '100%',
         margin: '0 auto'
     },
+    questionTextContainer: {
+        marginTop: theme.spacing.unit * 8,
+        marginBottom: theme.spacing.unit * 8,
+        position: 'relative',
+        minHeight: '100px'
+    }
 });
 
 class Question extends React.Component {
@@ -36,7 +41,7 @@ class Question extends React.Component {
     getAnswerForm() {
         switch (this.props.type) {
             case 'slider': {
-                return <SliderAnswer onAnswer={this.props.onAnswer} choices={this.props.choices}/>;
+                return <SliderAnswer location={this.props.location} onAnswer={this.props.onAnswer} choices={this.props.choices}/>;
             }
             case 'buttons': {
                 return <ButtonsAnswer onAnswer={this.props.onAnswer} choices={this.props.choices}/>;
@@ -54,7 +59,9 @@ class Question extends React.Component {
     render() {
         return (
             <div className={this.props.classes.root}>
-                <h1 className={this.props.classes.questionText}>{this.props.question}</h1>
+                <div className={this.props.classes.questionTextContainer}>
+                    <h3 className={this.props.classes.questionText}>{this.props.question}</h3>
+                </div>
                 <div className={this.props.classes.answer}>
                     {this.getAnswerForm()}
                 </div>
