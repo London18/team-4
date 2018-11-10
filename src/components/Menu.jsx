@@ -12,18 +12,25 @@ import Profile from "./Profile";
 
 const styles = {
     settings: {
-        width: '200px',
-        height: '200px',
+        width: '300px',
+        height: '150px',
 
-        background: orange[600]
+        background: orange[900]
     },
     start: {
 
+    },
+    icon: {
+        width: '70px',
+        height: '70px',
+    },
+    profile: {
+        margin: '0 0 50px auto'
     }
 };
 
 const Container = styled.div`
- margin: 60px auto;
+ margin: 10px auto;
  text-align: center;
 `;
 
@@ -32,11 +39,13 @@ class Menu extends React.Component {
         return (
             <div>
                 <Profile />
+                <div style={styles.profile}>
+                </div>
                 <div>
                     <Container>
                         <NoStyleLink to="/survey">
                             <Button style={styles.settings} variant="contained" >
-                                <AssignmentIcon/>
+                                <AssignmentIcon style={styles.icon}/>
                             </Button>
                         </NoStyleLink>
                     </Container>
@@ -47,7 +56,7 @@ class Menu extends React.Component {
                     <Container>
                         <NoStyleLink to="/settings">
                             <Button style={styles.settings} variant={"contained"} >
-                                <SettingsIcon/>
+                                <SettingsIcon style={styles.icon}/>
                             </Button>
                         </NoStyleLink>
                     </Container>
