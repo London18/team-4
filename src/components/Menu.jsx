@@ -13,6 +13,7 @@ import Profile from "./Profile";
 const styles = {
     settings: {
         width: '200px',
+        height: '200px',
 
         background: orange[600]
     },
@@ -21,6 +22,11 @@ const styles = {
     }
 };
 
+const Container = styled.div`
+ margin: 60px auto;
+ text-align: center;
+`;
+
 class Menu extends React.Component {
     render() {
         return (
@@ -28,20 +34,22 @@ class Menu extends React.Component {
                 <Profile />
                 <div>
                     <Container>
-                        <Button style={styles.start} variant="contained" >
-                            <NoStyleLink to="/survey"></NoStyleLink>
-                            <AssignmentIcon/>
-                        </Button>
+                        <NoStyleLink to="/survey">
+                            <Button style={styles.settings} variant="contained" >
+                                <AssignmentIcon/>
+                            </Button>
+                        </NoStyleLink>
                     </Container>
                 </div>
 
                 <div>
 
                     <Container>
-                        <Button style={styles.start} variant={"contained"} >
-                            <NoStyleLink to="/settings"></NoStyleLink>
-                            <SettingsIcon/>
-                        </Button>
+                        <NoStyleLink to="/settings">
+                            <Button style={styles.settings} variant={"contained"} >
+                                <SettingsIcon/>
+                            </Button>
+                        </NoStyleLink>
                     </Container>
                 </div>
             </div>
