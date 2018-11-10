@@ -1,1 +1,1 @@
-CONFIG_FILE = './config/config.json'
+CONFIG_FILE = './src/config/config.json'

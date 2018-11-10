@@ -1,4 +1,4 @@
-from src.server import db
+from src.config.setup import db
 
 
 class User(db.Model):

@@ -1,22 +1,18 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-
-from src.config.load import load_config
-
-config = load_config()
-
-db_user   = config['db_user']
-db_pass   = config['db_pass']
-db_host   = config['db_host']
-db_schema = config['db_schema']
-
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@{}/{}'.format(db_user, db_pass, db_host, db_schema)
-db = SQLAlchemy(app)
+from src.config.setup import *
+from src.model.form import Form, FormType
 
 
 @app.route('/')
 def index():
+    # user = User(username="admin", password="passwd", email="email")
+    form = Form(type=FormType.DASS)
+
+    db.session.add(form)
+    db.session.commit()
+
+    forms = db.session.query(Form).all()
+    print(forms)
+
     return "Hello, World!"
 
 

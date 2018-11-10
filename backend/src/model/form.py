@@ -2,7 +2,7 @@ from enum import Enum, auto
 
 from sqlalchemy import ForeignKey
 
-from src.server import db
+from src.config.setup import db
 
 
 class FormType(Enum):
