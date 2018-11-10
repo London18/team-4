@@ -1,31 +1,31 @@
 import React from "react";
+import {dataStore} from 'data/dataStore';
 import Survey from "containers/questions/Survey";
 
-export default function UserSurvey(props) {
-    return (
-        <Survey
-            questions={[
-                {
-                    type: 'slider',
-                    choices: ['no at all confident', 'a little', 'moderate', 'a lot', 'completely confident'],
-                    question: 'Learning productively on the job'
-                },
-                {
-                    type: 'slider',
-                    choices: ['no at all confident', 'a little', 'moderate', 'a lot', 'completely confident'],
-                    question: 'solving problems at work'
-                },
-                {
-                    type: 'slider',
-                    choices: ['no at all confident', 'a little', 'moderate', 'a lot', 'completely confident'],
-                    question: 'accomplishing recent work well under time and schedule constraints'
-                },
-                {
-                    type: 'slider',
-                    choices: ['no at all confident', 'a little', 'moderate', 'a lot', 'completely confident'],
-                    question: 'understanding what is expected of you in your current role'
-                }
-            ]}
-        />
-    );
+export default class UserSurvey extends React.Component {
+    state = {
+        form: {},
+        formLoaded: false
+    };
+
+    componentDidMount() {
+        dataStore.getRandomForm((form) => {
+            this.props.setFormFetched();
+
+            this.setState({
+                form: form,
+                formLoaded: true
+            });
+        })
+    }
+
+    render() {
+        console.log(this.state);
+
+        return (this.state.formLoaded
+            ? <Survey location={this.props.location}
+                      questionIdx={this.props.questionIdx}
+                      questions={this.state.form['questions']} />
+            : <div />);
+    }
 }

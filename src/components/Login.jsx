@@ -31,12 +31,12 @@ const styles = theme => ({
         margin: '0 auto'
     },
     inputButton: {
-        width: '200px',
-        height: '200px',
+        width: '150px',
+        height: '150px',
     },
     inputButtonText: {
         color: 'white',
-        fontSize: '50px'
+        fontSize: '35px'
     }
 });
 

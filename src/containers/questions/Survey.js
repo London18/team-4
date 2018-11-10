@@ -5,7 +5,6 @@ import {nextQuestion} from "redux/actions/AppGlobal";
 
 function mapStateToProps(state) {
     return {
-        questionIdx: state.appGlobal.questionIdx
     };
 }
 

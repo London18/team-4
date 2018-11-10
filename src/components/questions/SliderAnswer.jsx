@@ -55,7 +55,8 @@ class SliderAnswer extends React.Component {
 
                 <p className={classes.label}>{this.props.choices[this.state.value]}</p>
 
-                <NextButton onClick={(event) => this.props.onAnswer(event, this.props.choices[this.state.value])} />
+                <NextButton location={this.props.location}
+                            onClick={(event) => this.props.onAnswer(event, this.props.choices[this.state.value])} />
             </div>
         );
     }

@@ -1,15 +1,17 @@
 import React from 'react';
-import ProgressSnackBar from "./ProgressSnackBar";
-import Login from "./Login";
-import { TimePerQuestionProgressChart } from "./TimePerQuestionProgressChart";
+import {Route, Switch} from "react-router-dom";
+import Login from "components/Login";
+import Menu from "components/Menu";
+import UserSurvey from "containers/UserSurvey";
 
-export default class Homepage extends React.Component {
+export default class App extends React.Component {
     render() {
         return (
-            <div>
-                {/*<Login />*/}
-                <TimePerQuestionProgressChart />
-            </div>
+            <Switch>
+                <Route exact path="/" component={Login} />
+                <Route path="/menu" component={Menu} />
+                <Route path="/survey" component={UserSurvey} />
+            </Switch>
         );
     }
 }

@@ -34,4 +34,9 @@ export function changeSettings(settings){
     }
 }
 
+export function resetFormQuestion() {
+    return {
+        type: AllActions.AppGlobal.RESET_FORM,
+    }
+}
 
