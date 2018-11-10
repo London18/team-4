@@ -58,7 +58,7 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: 'column',
         paddingRight: theme.spacing.unit * 3,
-        paddingBottom: theme.spacing.unit * 40
+        paddingBottom: theme.spacing.unit * 3
     },
     toolbar: theme.mixins.toolbar,
     rootItems: {
