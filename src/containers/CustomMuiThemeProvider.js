@@ -4,7 +4,9 @@ import CustomMuiThemeProvider from 'components/CustomMuiThemeProvider';
 
 function mapStateToProps(state) {
     return {
-        primaryColor: state.appGlobal.primaryColor
+        primaryColor: {
+            main: state.appGlobal.primaryColor
+        }
     };
 }
 
