@@ -36,13 +36,13 @@ class Question extends React.Component {
     getAnswerForm() {
         switch (this.props.type) {
             case 'slider': {
-                return <SliderAnswer choices={this.props.choices}/>;
+                return <SliderAnswer onAnswer={this.props.onAnswer} choices={this.props.choices}/>;
             }
             case 'buttons': {
-                return <ButtonsAnswer choices={this.props.choices}/>;
+                return <ButtonsAnswer onAnswer={this.props.onAnswer} choices={this.props.choices}/>;
             }
             case 'text': {
-                return <TextAnswer />;
+                return <TextAnswer onAnswer={this.props.onAnswer} />;
             }
 
             default: {

@@ -19,7 +19,13 @@ export function changePaletteColor(palette, color){
     returnObject['palette'] = palette;
     returnObject['color'] = color;
     return returnObject;
-} 
+}
+
+export function nextQuestion() {
+    return {
+        type: AllActions.AppGlobal.NEXT_QUESTION
+    }
+}
 
 export function changeSettings(settings){
     return {

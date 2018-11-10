@@ -105,7 +105,7 @@ class ClippedDrawer extends React.Component {
                     </Toolbar>
                 </AppBar>
 
-                <Hidden mdUp>
+                {/*<Hidden mdUp>
                     <Drawer
                         variant="temporary"
                         anchor="left"
@@ -130,7 +130,7 @@ class ClippedDrawer extends React.Component {
                         <div className={classes.toolbar}/>
                         {GeneralList}
                     </Drawer>
-                </Hidden>
+                </Hidden>*/}
 
                 <main className={classes.content} id="main-content">
                     <div className={classes.toolbar} id="toolbar-mock"/>

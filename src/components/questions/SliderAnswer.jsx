@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/lab/Slider';
+import NextButton from "components/questions/NextButton";
 
 const styles = theme => ({
     root: {
@@ -21,7 +22,13 @@ class SliderAnswer extends React.Component {
         super(props);
 
         this.state = {
-            value: 0
+            value: Math.floor(props.choices.length / 2)
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.choices.length !== nextProps.choices.length) {
+            this.handleChange(Math.floor(nextProps.choices.length / 2));
         }
     }
 
@@ -47,6 +54,8 @@ class SliderAnswer extends React.Component {
                 />
 
                 <p className={classes.label}>{this.props.choices[this.state.value]}</p>
+
+                <NextButton onClick={(event) => this.props.onAnswer(event, this.props.choices[this.state.value])} />
             </div>
         );
     }

@@ -9,7 +9,9 @@ export default class CustomMuiThemeProvider extends React.Component {
                 useNextVariants: true,
             },
             palette: {
-                primary: this.props.primaryColor,
+                primary: {
+                    main: this.props.primaryColor,
+                }
             }
         });
     }
