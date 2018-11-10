@@ -7,7 +7,6 @@ from src.decorators.serialize import json_response
 from src.model.form import Form
 
 
-# class FormController(Resource):
 @app.route('/form/id/<id>', methods=['GET'])
 @json_response
 def get_form(id):

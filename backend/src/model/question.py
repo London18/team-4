@@ -1,15 +1,17 @@
+import json
 from enum import Enum, auto
 
 from sqlalchemy import ForeignKey
 
 from src.config.setup import db
+from src.model.form import Form
 from src.model.serializable import SerializableEnum, Serializable
 
 
 class QuestionType(SerializableEnum):
-    OPTIONS = auto()
-    TEXT    = auto()
-    YES_NO  = auto()
+    SLIDER = auto()
+    TEXT   = auto()
+    YES_NO = auto()
 
 
 class Question(db.Model, Serializable):
@@ -21,9 +23,11 @@ class Question(db.Model, Serializable):
     type    = db.Column(db.Enum(QuestionType), nullable=False)
 
     def serialize(self):
-        d = Serializable.serialize(self)
-        d['type'] = self.type.serialize()
-        return d
+        dto = Serializable.serialize(self)
+        if self.type == QuestionType.SLIDER:
+            choices_model_json = Form.query.get(self.form_id).choices
+            dto['choices'] = json.loads(choices_model_json)
+        return dto
 
     def __repr__(self):
         return '<Question {}>'.format(self.id)

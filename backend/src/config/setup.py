@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 
-from src.config.load import load_config
+from src.config.load_config import load_config
 
 config = load_config()
 
