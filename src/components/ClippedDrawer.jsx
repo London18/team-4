@@ -88,7 +88,7 @@ class ClippedDrawer extends React.Component {
 
         return (
             <div className={classes.root}>
-                <AppBar position="absolute" className={classes.appBar}>
+                <AppBar settings={this.props.settings} position="absolute" className={classes.appBar}>
                     <Toolbar>
                         <IconButton
                             color="inherit"
@@ -148,4 +148,4 @@ ClippedDrawer.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ClippedDrawer);
+export default withStyles(styles, { withTheme: true })(ClippedDrawer);

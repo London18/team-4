@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
-import CustomizeForm from 'components/CustomizeForm';
+import CustomizeForm from 'components/FormComponents/CustomizeForm';
 import { changeSettings } from 'redux/actions/AppGlobal';
 
 function mapStateToProps(state) {

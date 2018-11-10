@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Radio from '@material-ui/core/Radio'
 import Slider from '@material-ui/lab/Slider'
+import NoStyleLink from "components/NoStyleLink";
 
 export default class CustomizeForm extends React.Component {
     state = {
@@ -13,14 +14,14 @@ export default class CustomizeForm extends React.Component {
     handleColorChange = event => {
         this.setState({
             selectedColor: event.target.value
-        });
+        }, () => this.saveSettings() );
     };
 
     handleFontSizeChange = (event, value) => {
         this.setState({
             selectedFontSize: value
-        });
-    }
+        }, () => this.saveSettings());
+    };
 
     saveSettings(){
         //Redirect to form
@@ -28,13 +29,12 @@ export default class CustomizeForm extends React.Component {
         this.props.changeSettings({
             selectedColor: this.state.selectedColor,
             selectedFontSize: this.state.selectedFontSize});
-        console.log('blep')
-    }
+    };
 
     render() { 
-        var style = {
+        let style = {
             textAlign: 'center'
-        }
+        };
 
         return (
             <div>
@@ -116,12 +116,14 @@ export default class CustomizeForm extends React.Component {
 
                     <Grid container justify="center">
                         <Grid item>
-                            <Button 
-                                variant="contained" 
-                                size="large"
-                                onClick={() => this.saveSettings}>
-                                Submit
-                            </Button>
+                            <NoStyleLink to="/menu">
+                                <Button
+                                    variant="contained"
+                                    size="large"
+                                    onClick={() => this.saveSettings}>
+                                    Submit
+                                </Button>
+                            </NoStyleLink>
                         </Grid>
                     </Grid>
                 </Grid>
