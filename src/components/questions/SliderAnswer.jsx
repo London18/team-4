@@ -6,7 +6,7 @@ import NextButton from "components/questions/NextButton";
 
 const styles = theme => ({
     root: {
-        minWidth: '200px',
+
     },
     slider: {
         padding: '22px 0px',
