@@ -70,7 +70,7 @@ class ProgressSnackBar extends React.Component {
             return;
         }
 
-        this.setState({ open: false });
+        this.props.closeSnackbar();
     };
 
     render() {
@@ -85,7 +85,7 @@ class ProgressSnackBar extends React.Component {
                     }}
                     open={this.props.open}
                     TransitionComponent={Fade}
-                    autoHideDuration={400}
+                    autoHideDuration={1500}
                     onClose={this.handleClose}
                 >
                     <MySnackbarContentWrapper

@@ -21,16 +21,17 @@ class Survey extends React.Component {
         open: false
     };
 
+    closeSnackbar(e) {
+        this.setState({
+            open: false
+        })
+    }
 
     handleAnswer(questionId, answer) {
         this.setState({
             open: true
         });
-        setTimeout(function(){
-            this.setState({
-                open: false
-            }) ;
-            }.bind(this), 700);
+        
         var questionEndTime = new Date().getTime();
         var responseTime = questionEndTime - this.state.questionStartTime;
         console.log(responseTime);
@@ -55,7 +56,7 @@ class Survey extends React.Component {
         console.log(questions[questionIdx]);
         return (
             <div className={classes.root}>
-                <ProgressSnackBar open={this.state.open} />
+                <ProgressSnackBar open={this.state.open} closeSnackbar={this.closeSnackbar.bind(this)}/>
                 <div className={classes.question}>
                     <Question
                         question={questions[questionIdx].question}
