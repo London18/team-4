@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from "@material-ui/core/es/Input/Input";
 import TextField from "@material-ui/core/es/TextField/TextField";
+import Button from "@material-ui/core/es/Button/Button";
+import NoStyleLink from "components/NoStyleLink";
 
 const styles = theme => ({
     root: {
@@ -17,12 +19,12 @@ const styles = theme => ({
     input: {
         display: 'block',
         margin: 'auto auto',
-        textAlign: 'center'
+        textAlign: 'center',
     },
-    label: {
-        width: '50%',
-        height: '100%',
-        margin: '0 auto'
+    loginButton: {
+        display: 'block',
+        textAlign: 'center',
+        margin: '0 auto',
     },
 });
 
@@ -38,15 +40,15 @@ class Login extends React.Component {
             <div className={this.props.classes.root}>
                 <TextField
                     className={classes.input}
-                    placeholder={"Username"}
-                    floatingLabelText="Username"
-                    floatingLabelFixed={true} />
+                    placeholder={"Username"} />
 
                 <TextField
                     className={classes.input}
-                    placeholder={"Password"}
-                    floatingLabelText="Password"
-                    floatingLabelFixed={true} />
+                    placeholder={"Password"} />
+
+                <NoStyleLink to="/menu" className={classes.loginButton}>
+                    <Button variant="contained" color="primary">Login</Button>
+                </NoStyleLink>
             </div>
         );
     }

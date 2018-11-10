@@ -22,9 +22,7 @@ ReactDom.render(
                 <RouterListener>
                     <CustomMuiThemeProvider>
                         <ClippedDrawer>
-                            <Switch>
-                                <Route path="/" component={App}/>
-                            </Switch>
+                            <App />
                         </ClippedDrawer>
                     </CustomMuiThemeProvider>
                 </RouterListener>
