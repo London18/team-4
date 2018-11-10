@@ -100,7 +100,7 @@ class ClippedDrawer extends React.Component {
                         </IconButton>
 
                         <Typography variant="title" color="inherit" noWrap>
-                            Website for Relaxation
+                            HomelyAut
                         </Typography>
                     </Toolbar>
                 </AppBar>
