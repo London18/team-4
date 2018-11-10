@@ -3,14 +3,20 @@ import {Route, Switch} from "react-router-dom";
 import Login from "components/Login";
 import Menu from "components/Menu";
 import UserSurvey from "containers/UserSurvey";
+import FormChooserGrid from "./FormChooserGrid";
+import QuestionChooserGrid from "./QuestionChooserGrid";
+import {TimePerQuestionProgressChart} from "./TimePerQuestionProgressChart";
 
 export default class App extends React.Component {
     render() {
         return (
             <Switch>
-                <Route exact path="/" component={Login} />
-                <Route path="/menu" component={Menu} />
-                <Route path="/survey" component={UserSurvey} />
+                <Route exact path="/"       component={Login} />
+                <Route path="/menu"         component={Menu} />
+                <Route path="/survey"       component={UserSurvey} />
+                <Route path="/admin"        component={FormChooserGrid} />
+                <Route path="/form/:id"     component={QuestionChooserGrid} />
+                <Route path="/question/:id" component={TimePerQuestionProgressChart} />
             </Switch>
         );
     }

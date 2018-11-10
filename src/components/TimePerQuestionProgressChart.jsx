@@ -10,7 +10,7 @@ export class TimePerQuestionProgressChart extends React.Component {
     };
 
     componentDidMount() {
-        let questionId = this.props.questionId;
+        let questionId = this.props.match.params.id;
         let userId = 1;
 
         dataStore.getUserAnswers(userId, questionId, (data) => {
@@ -32,6 +32,8 @@ export class TimePerQuestionProgressChart extends React.Component {
                     data={{
                         labels: this.state.labels,
                         datasets: [{
+                            backgroundColor: 'rgba(75,192,192,0.4)',
+                            borderColor: 'rgba(75,192,192,1)',
                             label: this.state.datasetLabel,
                             data: this.state.data
                         }]
