@@ -34,7 +34,7 @@ export function appGlobal(state = appGlobalInitialState, action) {
                 settings: action.settings
             })
         }
-        
+
         case AllActions.AppGlobal.NEXT_QUESTION: {
             return Object.assign({}, {
                 ...state,

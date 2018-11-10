@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from "@material-ui/core/es/TextField/TextField";
 import styled from 'styled-components';
+import NoStyleLink from "components/NoStyleLink";
 
 const styles = theme => ({
     root: {
@@ -66,18 +67,20 @@ class Login extends React.Component {
                     floatingLabelText="Password"
                     floatingLabelFixed={true} />
 
-                <Container>
-                    <Button
-                        variant="fab"
-                        color="primary"
-                        size="medium"
-                        className={classes.inputButton}>
-                        <div
-                            className={classes.inputButtonText}>
-                            GO!
-                        </div>
-                    </Button>
-                </Container>
+                <NoStyleLink to="/menu" className={classes.loginButton}>
+                    <Container>
+                        <Button
+                            variant="fab"
+                            color="primary"
+                            size="medium"
+                            className={classes.inputButton}>
+                            <div
+                                className={classes.inputButtonText}>
+                                GO!
+                            </div>
+                        </Button>
+                    </Container>
+                </NoStyleLink>
             </div>
         );
     }

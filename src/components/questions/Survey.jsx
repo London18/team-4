@@ -15,7 +15,19 @@ const styles = theme => ({
 });
 
 class Survey extends React.Component {
+    state = {
+        questionStartTime: new Date().getTime(),
+    }
+
+
     handleAnswer(questionId, answer) {
+        var questionEndTime = new Date().getTime()
+        var responseTime = questionEndTime - this.state.questionStartTime;
+        console.log(responseTime);
+        //Do something with the response time here
+        this.setState({
+            questionStartTime: new Date().getTime()
+        })
         if (questionId === this.props.questions.length - 1) {
             // finish
         }
@@ -26,6 +38,7 @@ class Survey extends React.Component {
 
     render() {
         let {classes, questions, questionIdx} = this.props;
+        
 
         console.log(questionIdx);
         console.log(questions[questionIdx]);
@@ -40,6 +53,10 @@ class Survey extends React.Component {
                 </div>
             </div>
         );
+    }
+
+    componentDidMount(){
+        this.setState.responseTime = Math.round((new Date()).getTime() / 1000);
     }
 }
 
