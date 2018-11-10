@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import Input from "@material-ui/core/es/Input/Input";
 import TextField from "@material-ui/core/es/TextField/TextField";
+import styled from 'styled-components';
 
 const styles = theme => ({
     root: {
@@ -14,9 +14,14 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: 'column'
     },
-    input: {
+    inputUsername: {
         display: 'block',
         margin: 'auto auto',
+        textAlign: 'center'
+    },
+    inputPassword: {
+        display: 'block',
+        margin: '50px auto',
         textAlign: 'center'
     },
     label: {
@@ -24,7 +29,20 @@ const styles = theme => ({
         height: '100%',
         margin: '0 auto'
     },
+    inputButton: {
+        width: '200px',
+        height: '200px',
+    },
+    inputButtonText: {
+        color: 'white',
+        fontSize: '50px'
+    }
 });
+
+const Container = styled.div`
+ text-align: center;
+ margin: 30px auto;
+`;
 
 class Login extends React.Component {
     constructor(props) {
@@ -37,16 +55,29 @@ class Login extends React.Component {
         return (
             <div className={this.props.classes.root}>
                 <TextField
-                    className={classes.input}
+                    className={classes.inputUsername}
                     placeholder={"Username"}
                     floatingLabelText="Username"
                     floatingLabelFixed={true} />
 
                 <TextField
-                    className={classes.input}
+                    className={classes.inputPassword}
                     placeholder={"Password"}
                     floatingLabelText="Password"
                     floatingLabelFixed={true} />
+
+                <Container>
+                    <Button
+                        variant="fab"
+                        color="primary"
+                        size="medium"
+                        className={classes.inputButton}>
+                        <div
+                            className={classes.inputButtonText}>
+                            GO!
+                        </div>
+                    </Button>
+                </Container>
             </div>
         );
     }
