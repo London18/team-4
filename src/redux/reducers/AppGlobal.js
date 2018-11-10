@@ -5,6 +5,10 @@ export const appGlobalInitialState = {
     primaryColor: '#ff0000',
     positiveColor: '#00ff00',
     negativeColor: '#ff0000',
+    settings: {
+        selectedColor: 'blue',
+        selectedFontSize: 18
+    }
 };
 
 export function appGlobal(state = appGlobalInitialState, action) {
@@ -20,6 +24,13 @@ export function appGlobal(state = appGlobalInitialState, action) {
             return Object.assign({}, {
                 ...state,
                 [action.palette]: action.color  
+            })
+        }
+
+        case AllActions.AppGlobal.CHANGE_SETTINGS: {
+            return Object.assign({}, {
+                ...state,
+                settings: action.settings
             })
         }
 

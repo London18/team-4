@@ -21,4 +21,11 @@ export function changePaletteColor(palette, color){
     return returnObject;
 } 
 
+export function changeSettings(settings){
+    return {
+        type: AllActions.AppGlobal.CHANGE_SETTINGS,
+        settings: settings
+    }
+}
+
 

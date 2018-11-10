@@ -2,15 +2,12 @@ import React from 'react'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Radio from '@material-ui/core/Radio'
-import RadioGroup from '@material-ui/core/RadioGroup'
-import FormLabel from '@material-ui/core/FormLabel'
-import FormControl from '@material-ui/core/FormControl'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Slider from '@material-ui/lab/Slider'
 
 export default class CustomizeForm extends React.Component {
     state = {
         selectedColor: 'blue',
-        selectedFontSize: '12px'
+        selectedFontSize: 18
     };
 
     handleColorChange = event => {
@@ -19,10 +16,19 @@ export default class CustomizeForm extends React.Component {
         });
     };
 
-    handleFontSizeChange = event => {
+    handleFontSizeChange = (event, value) => {
         this.setState({
-            selectedFontSize: event.target.value
+            selectedFontSize: value
         });
+    }
+
+    saveSettings(){
+        //Redirect to form
+        //Save it on db?
+        this.props.changeSettings({
+            selectedColor: this.state.selectedColor,
+            selectedFontSize: this.state.selectedFontSize});
+        console.log('blep')
     }
 
     render() { 
@@ -92,22 +98,31 @@ export default class CustomizeForm extends React.Component {
                     <Grid item xs={12}>
                         <h2 style={{textAlign: 'left'}}>Text size:</h2>
                     </Grid>
-                    <Grid container direction="row" justify="center">
-                        <div>
-                            <FormControl component="fieldset">
-                            <FormLabel component="legend">Text Size</FormLabel>
-                            <RadioGroup
-                                aria-label="fontSize"
-                                name="fontSize"
+
+                    <Grid container justify="center">
+                        <Grid item xs={8}>
+                            <Slider
                                 value={this.state.selectedFontSize}
+                                min={18}
+                                max={48}
+                                step={1}
                                 onChange={this.handleFontSizeChange}
-                            >
-                                <FormControlLabel value="12px" control={<Radio />} label="aA" style={{fontSize: '12px'}}/>
-                                <FormControlLabel value="14px" control={<Radio />} label="aA" style={{fontSize: '14px'}}/>
-                                <FormControlLabel value="18px" control={<Radio />} label="aA" style={{fontSize: '18px'}}/>
-                            </RadioGroup>
-                            </FormControl>
-                        </div>
+                            />
+                        </Grid>
+                        <Grid item xs={8}>
+                            <p style={{fontSize: this.state.selectedFontSize, textAlign: "center"}}>Aa</p>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container justify="center">
+                        <Grid item>
+                            <Button 
+                                variant="contained" 
+                                size="large"
+                                onClick={() => this.saveSettings}>
+                                Submit
+                            </Button>
+                        </Grid>
                     </Grid>
                 </Grid>
             </div>
