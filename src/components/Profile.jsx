@@ -33,7 +33,7 @@ class Profile extends React.Component {
                     </Grid>
                 </Grid>
                 <Grid item xs={12} sm={8}>
-                    <LinearProgress variant="determinate" color="secondary"  value={this.state.completed} style={{height: 30}}/>
+                    <LinearProgress variant="determinate" color="primary"  value={this.state.completed} style={{height: 30}}/>
                 </Grid>
             </Grid>
             </div>

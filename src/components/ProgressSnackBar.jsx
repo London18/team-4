@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Button from '@material-ui/core/Button';
-import orange from '@material-ui/core/colors/orange';
 import Snackbar from '@material-ui/core/Snackbar';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import { withStyles } from '@material-ui/core/styles';
@@ -10,7 +8,7 @@ import Fade from '@material-ui/core/Fade';
 
 const styles1 = theme => ({
     success: {
-        backgroundColor: orange[600],
+        backgroundColor: theme.palette.primary.main
     },
     message: {
         display: 'flex',
@@ -80,7 +78,7 @@ class ProgressSnackBar extends React.Component {
             <div>
                 <Snackbar
                     anchorOrigin={{
-                        vertical: 'top',
+                        vertical: 'bottom',
                         horizontal: 'center',
                     }}
                     open={this.props.open}

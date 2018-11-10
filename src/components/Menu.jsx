@@ -6,7 +6,6 @@ import SettingsIcon  from '@material-ui/icons/Settings';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import NoStyleLink from "components/NoStyleLink";
 import styled from "styled-components";
-import orange from '@material-ui/core/colors/orange';
 import Profile from "./Profile";
 
 
@@ -15,7 +14,6 @@ const styles = {
         width: '300px',
         height: '150px',
 
-        background: orange[900]
     },
     start: {
 
@@ -44,7 +42,7 @@ class Menu extends React.Component {
                 <div>
                     <Container>
                         <NoStyleLink to="/survey">
-                            <Button style={styles.settings} variant="contained" >
+                            <Button style={styles.settings} color="primary" variant="contained" >
                                 <AssignmentIcon style={styles.icon}/>
                             </Button>
                         </NoStyleLink>
@@ -54,7 +52,7 @@ class Menu extends React.Component {
                 <div>
                     <Container>
                         <NoStyleLink to="/settings">
-                            <Button style={styles.settings} variant={"contained"} >
+                            <Button style={styles.settings} color="primary" variant={"contained"} >
                                 <SettingsIcon style={styles.icon}/>
                             </Button>
                         </NoStyleLink>
