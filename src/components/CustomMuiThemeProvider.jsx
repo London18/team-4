@@ -22,9 +22,6 @@ export default class CustomMuiThemeProvider extends React.Component {
                 break;
             }
         }
-
-        debugger
-
         return createMuiTheme({
             typography: {
                 useNextVariants: true,

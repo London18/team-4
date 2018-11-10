@@ -44,6 +44,7 @@ class Survey extends React.Component {
         if (questionId === this.props.questions.length - 1) {
             // finish
             let responseTime = questionEndTime - this.state.questionStartTime;
+            this.props.history.push('/menu');
         }
         else {
             this.props.nextQuestion();
@@ -53,6 +54,11 @@ class Survey extends React.Component {
 
     render() {
         let {classes, questions, questionIdx} = this.props;
+
+        if (questionIdx >= questions.length) {
+            this.props.history.push('/menu');
+            return <div />;
+        }
 
         return (
             <div className={classes.root}>
