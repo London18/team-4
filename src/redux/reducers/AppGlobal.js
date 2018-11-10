@@ -1,10 +1,10 @@
 import AllActions from "../actions/AllActions";
-import red from '@material-ui/core/colors/red';
-
 
 export const appGlobalInitialState = {
     // Insert state variables here
-    primaryColor: red
+    primaryColor: '#ff0000',
+    positiveColor: '#00ff00',
+    negativeColor: '#ff0000',
 };
 
 export function appGlobal(state = appGlobalInitialState, action) {
@@ -16,11 +16,11 @@ export function appGlobal(state = appGlobalInitialState, action) {
             });
         }*/
 
-        case AllActions.AppGlobal.CHANGE_PRIMARY_COLOR: {
+        case AllActions.AppGlobal.CHANGE_PALETTE_COLOR: {
             return Object.assign({}, {
                 ...state,
-                primaryColor: action.color
-            });
+                [action.palette]: action.color  
+            })
         }
 
         default: {

@@ -13,9 +13,12 @@ export function toggleDrawer() {
     }
 }
 
-export function changePrimaryColor(color) {
-    return {
-        type: AllActions.AppGlobal.CHANGE_PRIMARY_COLOR,
-        color: color
-    }
-}
+export function changePaletteColor(palette, color){
+    var returnObject = {};
+    returnObject['type'] = AllActions.AppGlobal.CHANGE_PALETTE_COLOR;
+    returnObject['palette'] = palette;
+    returnObject['color'] = color;
+    return returnObject;
+} 
+
+
