@@ -7,6 +7,7 @@ let AllActions = {
         CHANGE_SETTINGS: 'AllActions.AppGlobal.CHANGE_SETTINGS',
         NEXT_QUESTION: 'AllActions.AppGlobal.NEXT_QUESTION',
         RESET_FORM: 'AllActions.AppGlobal.RESET_FORM',
+        UPDATE_THEME: 'AllActions.AppGlobal.UPDATE_THEME'
     }
 };
 

@@ -43,7 +43,6 @@ class Menu extends React.Component {
                 </div>
 
                 <div>
-
                     <Container>
                         <NoStyleLink to="/settings">
                             <Button style={styles.settings} variant={"contained"} >

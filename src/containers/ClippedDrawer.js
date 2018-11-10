@@ -5,7 +5,8 @@ import {toggleDrawer} from "../redux/actions/AppGlobal";
 
 function mapStateToProps(state) {
     return {
-        isDrawerModalOpen: state.appGlobal.isDrawerModalOpen
+        isDrawerModalOpen: state.appGlobal.isDrawerModalOpen,
+        settings: state.appGlobal.settings
     };
 }
 

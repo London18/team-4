@@ -4,6 +4,7 @@ import App from 'components/App';
 
 function mapStateToProps(state) {
     return {
+        settings: state.appGlobal.settings
     };
 }
 
