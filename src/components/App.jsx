@@ -1,12 +1,17 @@
 import React from 'react';
-import UserSurvey from "./UserSurvey";
+import {Route, Switch} from "react-router-dom";
+import Login from "components/Login";
+import Menu from "components/Menu";
+import UserSurvey from "containers/UserSurvey";
 
-export default class Homepage extends React.Component {
+export default class App extends React.Component {
     render() {
         return (
-            <div>
-                <UserSurvey />
-            </div>
+            <Switch>
+                <Route exact path="/" component={Login} />
+                <Route path="/menu" component={Menu} />
+                <Route path="/survey" component={UserSurvey} />
+            </Switch>
         );
     }
 }

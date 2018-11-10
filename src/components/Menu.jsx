@@ -18,18 +18,8 @@ const styles = {
     },
     start: {
 
-        width: '150px',
-        height: '150px',
-        backgroundColor: orange[600]
-    },
-    settingsButton: {},
-    startButton: {}
-};
-
-const Container = styled.div`
- text-align: center;
- margin: 70px auto;
-`;
+    }
+});
 
 class Menu extends React.Component {
     render() {

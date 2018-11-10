@@ -22,11 +22,15 @@ class NextButton extends React.Component {
     }
 
     componentDidMount() {
+        this.setState({
+            nextEnabled: false
+        });
+
         setTimeout(() => {
             this.setState({
                 nextEnabled: true
             })
-        }, 3000)
+        }, 700)
     }
 
     render() {
