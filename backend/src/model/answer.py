@@ -3,9 +3,10 @@ from enum import Enum
 from sqlalchemy import ForeignKey
 
 from src.config.setup import db
+from src.model.serializable import Serializable
 
 
-class Answer(db.Model):
+class Answer(db.Model, Serializable):
     __tablename__ = 'answer'
 
     id             = db.Column(db.Integer, primary_key=True)
