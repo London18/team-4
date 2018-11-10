@@ -33,9 +33,11 @@ RNG.prototype.nextDateRange = function randomDate(start, end) {
     return new Date(this.nextRange(start.getTime(), end.getTime()));
 };
 
+let rng = new RNG(134564);
 function randrange(a, b) {
-    return a + Math.floor(Math.random() * (b - a));
+    return rng.nextRange(a, b);
 }
+
 
 const forms = {
     0: {
