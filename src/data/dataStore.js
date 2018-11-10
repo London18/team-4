@@ -33,13 +33,16 @@ RNG.prototype.nextDateRange = function randomDate(start, end) {
     return new Date(this.nextRange(start.getTime(), end.getTime()));
 };
 
+let rng = new RNG(134564);
 function randrange(a, b) {
-    return a + Math.floor(Math.random() * (b - a));
+    return rng.nextRange(a, b);
 }
+
 
 const forms = {
     0: {
         name: 'WS-EL Self Performance',
+        id: 0,
         questions: [
             {question: 'Know what is expected of you as a worker', choices: ['not at all confident', 'a little', 'moderate', 'a lot', 'completely confident'], id: randrange(0, 1321232132), type: 'slider'},
             {question: 'help build a team as a working unit', choices: ['not at all confident', 'a little', 'moderate', 'a lot', 'completely confident'], id: randrange(0, 1321232132), type: 'slider'},
@@ -75,7 +78,8 @@ const forms = {
     },
 
     1: {
-        name: 'WS-EL Self Performance',
+        name: 'WS-EL Self',
+        id: 1,
         questions: [
             {
                 type: 'slider',
@@ -143,7 +147,11 @@ for (let key in forms) {
 export const dataStore = {
     getAvaiableForms: function(callback) {
         let keys = [];
-        forms.forEach((key) => keys.push(key));
+
+        for (const [key, value] of Object.entries(forms)) {
+            keys.push(key)
+        }
+
         callback(keys)
     },
 
@@ -161,6 +169,8 @@ export const dataStore = {
         let nr_answers = randrange(10, 100);
         let question = questions[questionId];
         let answers = [];
+
+        // debugger;
 
         for (let i = 0; i < nr_answers; i++) {
             let answer = random.choice(question.choices);

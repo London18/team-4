@@ -11,12 +11,15 @@ export default class CustomMuiThemeProvider extends React.Component {
         switch (this.props.settings.selectedColor) {
             case 'red': {
                 color = red;
+                break;
             }
             case 'green': {
                 color = green;
+                break;
             }
             default: {
                 color = blue;
+                break;
             }
         }
 
