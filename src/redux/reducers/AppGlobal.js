@@ -28,19 +28,18 @@ export function appGlobal(state = appGlobalInitialState, action) {
             })
         }
 
-<<<<<<< HEAD
         case AllActions.AppGlobal.CHANGE_SETTINGS: {
             return Object.assign({}, {
                 ...state,
                 settings: action.settings
             })
-=======
+        }
+        
         case AllActions.AppGlobal.NEXT_QUESTION: {
             return Object.assign({}, {
                 ...state,
                 questionIdx: state.questionIdx + 1
             });
->>>>>>> a320b93... Add questions components and survey #lostCode
         }
 
         default: {
