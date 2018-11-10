@@ -40,3 +40,9 @@ export function resetFormQuestion() {
     }
 }
 
+export function updateTheme(theme) {
+    return {
+        type: AllActions.AppGlobal.UPDATE_THEME,
+        theme: theme,
+    }
+}

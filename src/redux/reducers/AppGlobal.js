@@ -49,6 +49,13 @@ export function appGlobal(state = appGlobalInitialState, action) {
             });
         }
 
+        case AllActions.AppGlobal.UPDATE_THEME: {
+            return Object.assign({}, {
+                ...state,
+                theme: action.theme
+            });
+        }
+
         default: {
             return state;
         }
