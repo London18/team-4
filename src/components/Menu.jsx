@@ -19,7 +19,7 @@ const styles = {
     start: {
 
     }
-});
+};
 
 class Menu extends React.Component {
     render() {
